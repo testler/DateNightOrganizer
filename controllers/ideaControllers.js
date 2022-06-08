@@ -1,30 +1,30 @@
 
 let index = (req, res) => {
-    
+    res.render("../views/ideaIndex.ejs");
 }
-let newUser = (req, res) => {
-    
+let newIdea = (req, res) => {
+    res.render("../views/newIdea.ejs");
 }
-let createUser = (req, res) => {
-    
+let create = (req, res) => {
+    res.render("../views/createIdea.ejs");
 }
 let show = (req, res) => {
-    
+    res.render("../views/showIdea.ejs");
 }
 let edit = (req, res) => {
-    
+    res.render("../views/editIdea.ejs");
 }
 let update = (req, res) => {
-    
+    res.render("../views/updateIdea.ejs");
 }
 let destroy = (req, res) => {
-    
+    res.render("../views/deleteIdea.ejs");
 }
 
 module.exports = {
 index,
-newUser,
-createUser,
+newIdea,
+create,
 show,
 edit,
 update,

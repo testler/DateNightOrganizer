@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
-const idea = require("./Ideas.js")
+const Idea = require("./Idea.js");
 
 const userSchema = new mongoose.Schema(
     {
         username: String,
         password: String,
         profilePhoto: String,
-        idea: [idea.Idea],
+        idea: [Idea]
     }
 )
 
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

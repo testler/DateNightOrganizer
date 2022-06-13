@@ -1,28 +1,51 @@
-const uDB = require("../models/User");
+const User = require("../models/User.js");
+const Idea = require("./models/Idea.js");
 
 let landingPage = (req, res) => {
-    res.render("../views/landingPage.ejs");
+    res.render("landingPage.ejs");
 }
 let loginPage = () => {
-    res.render("../views/login.ejs");
+    res.render("login.ejs");
+    //res.redirect("/user/:id");
 }
 let newUser = (req, res) => {
-    res.render("../views/newUser.ejs");
+    res.render("newUser.ejs");
 }
 let create = (req, res) => {
-    res.render("../views/createUser.ejs");
+    User.create((req.body), (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        } 
+        res.redirect("/user/user.objectId");   
+    })
 }
 let showDashboard = (req, res) => {
-    res.render("../views/showUserDashdoard.ejs");
+    res.render("showUserDashdoard.ejs");
 }
 let edit = (req, res) => {
-    res.render("../views/editUser.ejs");
+    User.findById((req.params.id), (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        } 
+        res.render("editUser.ejs", {user: user});   
+    })
+    res.render("editUser.ejs", req.params);
 }
 let update = (req, res) => {
-    res.render("../views/updateUser.ejs");
+    User.findByIdAndUpdate((req.params.id), (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        } 
+        res.redirect("/user/user.objectId/edit");   
+    })
 }
 let destroy = (req, res) => {
-    res.render("../views/deleteUser.ejs");
+    User.findByIdAndDelete((req.params.id), (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        } 
+        res.redirect("/");   
+    })
 }
 
 module.exports = {

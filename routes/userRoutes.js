@@ -7,7 +7,7 @@ router.post("/user", uControl.create);
 router.get("/user/login", uControl.loginPage);
 router.get("/user/:id", uControl.showDashboard);
 router.get("/user/:id/edit", uControl.edit);
-router.patch("/object/:id", uControl.update);
+router.patch("/user/:id", uControl.update);
 router.delete("/user/:id", uControl.destroy);
 
 module.exports = router;

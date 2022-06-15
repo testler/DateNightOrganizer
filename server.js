@@ -12,8 +12,8 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+app.use("/user/:id/ideas", iRoutes);
 app.use("/", uRoutes);
-app.use("/user/:id/", iRoutes);
 
 app.listen(PORT, ()=>{
     console.log("Serer is up on port" + PORT);

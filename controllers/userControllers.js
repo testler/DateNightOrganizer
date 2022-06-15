@@ -1,5 +1,4 @@
-const User = require("../models/User.js");
-const Idea = require("./models/Idea.js");
+const User = require("../models/User");
 
 let landingPage = (req, res) => {
     res.render("landingPage.ejs");

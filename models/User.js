@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
-const Idea = require("./Idea.js");
-
+const ideaSchema = new mongoose.Schema(
+    {
+        title: String,
+        time: String,
+        budget: String,
+        mood: String,
+        description: String,
+    }
+)
 const userSchema = new mongoose.Schema(
     {
         username: String,
         password: String,
         profilePhoto: String,
-        idea: [Idea]
+        idea: [ideaSchema]
     }
 )
 

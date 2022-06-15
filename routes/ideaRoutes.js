@@ -2,11 +2,11 @@ const router = require("express").Router();
 const iControl = require("../controllers/ideaControllers.js");
 
 router.get("/", iControl.index);
-router.get("/idea/new", iControl.newIdea);
-router.post("/idea", iControl.create);
-router.get("/idea/:id", iControl.show);
-router.get("/idea/:id/edit", iControl.edit);
-router.patch("/idea/:id", iControl.update);
-router.delete("/idea/:id", iControl.destroy);
+router.get("/new", iControl.newIdea);
+router.post("/", iControl.create);
+router.get("/:ideaId", iControl.show);
+router.get("/:ideaId/edit", iControl.edit);
+router.patch("/:ideaId", iControl.update);
+router.delete("/:ideaId", iControl.destroy);
 
 module.exports = router;

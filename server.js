@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
+const PORT = normalizePort(process.env.PORT || '3000');
 const uRoutes = require("./routes/userRoutes.js");
 const uControl = require("./controllers/userControllers.js");
 const iRoutes = require("./routes/ideaRoutes");

@@ -3,8 +3,28 @@ const User = require("../models/User");
 let landingPage = (req, res) => {
     res.render("landingPage.ejs");
 }
-let loginPage = () => {
-    res.render("login.ejs");
+let checkLogin = (req, res) => {
+    let loginInfo = req.body;
+    let userInfo;
+    User.findOne(({username: loginInfo.username}), (err, user)=>{
+        if(err){
+            res.status(400).json(err);
+        }
+        userInfo = user;
+    })
+    if(userInfo == undefined){
+        res.render("login.ejs", {problem: 1})
+    }else if(userInfo.password !== loginInfo.password){
+        res.render("login.ejs", {problem: 2})
+    }else{
+        res.redirect(`/user/${userInfo._id}`)
+    }
+}
+let loginPage = (req, res) => {
+    res.render("login.ejs", {problem: 0})
+    .then(()=>{
+
+    })
     //res.redirect("/user/:id");
 }
 let newUser = (req, res) => {
@@ -49,6 +69,7 @@ let destroy = (req, res) => {
 
 module.exports = {
 landingPage,
+checkLogin,
 loginPage,
 newUser,
 create,

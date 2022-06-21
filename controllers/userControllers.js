@@ -35,9 +35,10 @@ let create = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
-    }).then(()=>{
-    res.redirect(`/user/${user._id}`);  
+        console.log(user);
+        res.redirect(`/user/${user._id}`);  
     })
+    
      
 }
 let showDashboard = (req, res) => {

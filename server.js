@@ -6,6 +6,8 @@ const uRoutes = require("./routes/userRoutes.js");
 const uControl = require("./controllers/userControllers.js");
 const iRoutes = require("./routes/ideaRoutes");
 const methodOverride = require("method-override");
+require("dotenv").config();
+require("./db/connection");
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 

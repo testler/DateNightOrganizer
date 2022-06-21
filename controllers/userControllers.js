@@ -36,7 +36,8 @@ let create = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
-        console.log(res.json(user));
+        console.log(user);
+        console.log(err);
         res.redirect(`/user/${user._id}`);  
     })
     
@@ -55,9 +56,10 @@ let edit = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
+        console.log(user);
         res.render("editUser.ejs", {user: user});   
     })
-    res.render("editUser.ejs", req.params);
+    
 }
 let update = (req, res) => {
     User.findByIdAndUpdate((req.params.id), (err, user) =>{

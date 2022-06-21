@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 app.use("/user/:id/idea", iRoutes);
 app.use("/", uRoutes);

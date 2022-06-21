@@ -35,8 +35,10 @@ let create = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
-        res.redirect(`/user/${user._id}`);   
+    }).then(()=>{
+    res.redirect(`/user/${user._id}`);  
     })
+     
 }
 let showDashboard = (req, res) => {
     res.render("showUserDashdoard.ejs");

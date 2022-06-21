@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 const PORT = 8080;
 const uRoutes = require("./routes/userRoutes.js");
@@ -6,6 +7,7 @@ const uControl = require("./controllers/userControllers.js");
 const iRoutes = require("./routes/ideaRoutes");
 const methodOverride = require("method-override");
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
 app.use(methodOverride("_method"));
 
@@ -16,5 +18,5 @@ app.use("/user/:id/idea", iRoutes);
 app.use("/", uRoutes);
 
 app.listen((process.env.PORT || PORT), ()=>{
-    console.log("Serer is up on port" + PORT);
+    console.log("Server is up on port" + PORT);
 })

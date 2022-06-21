@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>idea</title>
+</head>
+<body>
+    <header class="top-bar"><h1>Date Night Organizer</h1></header>
+        <h1><%= idea.title %></h1> 
+        <h3>This idea needs to be done before <%= idea.time %> </h3>
+        <h3>The budget for this idea is <%= idea.budget %> </h3>
+        <% if(mood == in){ %> 
+            <h3>You will be staying in!</h3> 
+        <% } else{ %> 
+            <h3>You will be going out!</h3>
+        <% } %> 
+        <h2>idea.description</h2>
+</body>
+</html>

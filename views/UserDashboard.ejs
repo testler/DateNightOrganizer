@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Dashboard</title>
 </head>
-<header>
-    <h1>Dashboard</h1>
-</header>
 <body>
-    
-    <div class = "box">manage ideas</div>
-    <div class = "box">Randomly select a date night idea</div>
+    <header class="top-bar"><h1>Date Night Organizer</h1></header>
+    <div class = "box box1"><a href=<%=`/user/${user._id}/idea/`%>>manage ideas</a></div>
+    <div class = "box box2"><a href=<%=`/user/${user._id}/idea/Random`%>></a>Randomly select a date night idea</div>
 </body>
 </html>

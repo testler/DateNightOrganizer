@@ -31,18 +31,24 @@ let newUser = (req, res) => {
     res.render("newUser.ejs");
 }
 let create = (req, res) => {
+    console.log(req.body);
     User.create((req.body), (err, user) =>{
         if(err){
             res.status(400).json(err);
         } 
-        console.log(user);
+        console.log(res.json(user));
         res.redirect(`/user/${user._id}`);  
     })
     
      
 }
 let showDashboard = (req, res) => {
-    res.render("showUserDashdoard.ejs");
+    User.findById((req.params.id), (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        }
+    res.render("UserDashboard.ejs", {user: user});
+    })
 }
 let edit = (req, res) => {
     User.findById((req.params.id), (err, user) =>{
@@ -58,7 +64,7 @@ let update = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
-        res.redirect("/user/user.objectId/edit");   
+        res.redirect(`/user/${user._id}/edit`);   
     })
 }
 let destroy = (req, res) => {

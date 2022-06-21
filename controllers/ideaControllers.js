@@ -23,6 +23,32 @@ let create = (req, res) => {
             })
         })
 }
+let random = (req, res) => {
+    User.findById(req.params.id, (err, ideas) =>{
+        if(err){
+            res.status(400).json(err);
+        }
+        res.render("randomIdea.ejs", {ideas: ideas});
+        })
+}
+let findRandom = (req, res) => {
+    let filter = req.body;
+    User.findById(req.params.id, (err, ideas) =>{
+        if(err){
+            res.status(400).json(err);
+        }
+        let idea = User.idea.filter((idea) => {idea.time <= filter.time});
+        idea = idea.filter((idea)=>{idea.budget <= filter.budget});
+        idea = idea.filter((idea)=>{idea.mood == filter.mood});
+        idea = idea[Math.floor(Math.random() * idea.length)];
+        if(idea == undefined){
+            res.send("could not find idea");
+        }else{
+            res.render("showIdea.ejs", {idea: idea});    
+        }
+        
+        })
+}
 let show = (req, res) => {
     User.findById(req.params.id, (err, ideas) =>{
         if(err){
@@ -74,6 +100,8 @@ module.exports = {
 index,
 newIdea,
 create,
+random,
+findRandom,
 show,
 edit,
 update,

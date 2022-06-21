@@ -1,5 +1,24 @@
-<h1>Settings</h1>
-<img src="<%=user.profilePhoto%>" alt="">
-<a href="http://">change username</a>
-<a href="http://">change password</a>
-<a href="http://">delete account</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>settings</title>
+</head>
+<body>
+    <header class="top-bar"><h1>Date Night Organizer</h1></header>
+    <h1>Settings</h1>
+    <form action=<%=`/user/${user._id}?_method=PUT`%> method="put">
+    <label for="username">username</label>
+    <input type="text" name="username">
+    <label for="password">password</label>
+    <input type="text" name="password">
+    <input type="submit" value="save changes">
+    </form>
+    <form action=<%=`/user/${user._id}?_method=DELETE`%>  method="delete">
+        <input type="submit" value="delete account">
+    </form>   
+</body>
+</html>

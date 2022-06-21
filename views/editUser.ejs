@@ -10,14 +10,14 @@
 <body>
     <header class="top-bar"><h1>Date Night Organizer</h1></header>
     <h1>Settings</h1>
-    <form action=<%=`/user/${user._id}?_method=PUT`%> method="put">
+    <form action=<%=`/user/${user._id}?_method=PUT`%> method="post">
     <label for="username">username</label>
     <input type="text" name="username">
     <label for="password">password</label>
     <input type="text" name="password">
     <input type="submit" value="save changes">
     </form>
-    <form action=<%=`/user/${user._id}?_method=DELETE`%>  method="delete">
+    <form action=<%=`/user/${user._id}?_method=DELETE`%>  method="post">
         <input type="submit" value="delete account">
     </form>   
 </body>

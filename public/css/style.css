@@ -25,9 +25,11 @@
     background-color: gray;
 }
 .box1{
+    position: relative;
     left: 150px;
 }
 .box2{
+    position: relative;
     right: 150px;
 }
 .button{

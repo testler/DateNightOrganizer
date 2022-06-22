@@ -1,7 +1,6 @@
 const User = require("../models/User.js");
 
 let index = (req, res) => {
-    console.log(req.params.id);
     User.findById((req.params.id), (err, user) =>{
         if(err){
             res.status(400).json(err);
@@ -30,7 +29,17 @@ let create = (req, res) => {
         if(err){
             res.status(400).json(err);
         }
-        user.idea.push(req.body);
+        let newIdea = req.body;
+        let strParser = () => {
+            let testArr = newIdea.budget.split("");
+            testArr.forEach((char, i)=>{
+                if(char == "$"){
+                    delete testArr[i];
+                }
+            })
+            newIdea.budget = testArr.join("");
+        }
+        user.idea.push(newIdea);
         user.save((err)=>{
                 res.redirect(`/user/${user._id}/idea/`);
             })
@@ -67,17 +76,25 @@ let show = (req, res) => {
         if(err){
             res.status(400).json(err);
         }
-        let idea = user.idea.find((idea) => {idea.id == req.params.ideaId});
-        res.render("showIdea.ejs", {idea: idea});
-        })
+        let idea = user.idea.find((posIdea) => {
+            if(posIdea.id == req.params.ideaId){
+                return posIdea;
+            }
+        });
+        res.render("showIdea.ejs", {idea: idea, user: user});
+    })
 }
 let edit = (req, res) => {
     User.findById(req.params.id, (err, user) =>{
         if(err){
             res.status(400).json(err);
         }
-        let idea = user.idea.find((idea) => {idea.id == req.params.ideaId});
-        res.render("editIdea.ejs", {idea: idea});
+        let idea = user.idea.find((posIdea) => {
+            if(posIdea.id == req.params.ideaId){
+                return posIdea;
+            }
+        });
+        res.render("editIdea.ejs", {idea: idea, user: user});
         })
 }
 let update = (req, res) => {
@@ -85,28 +102,38 @@ let update = (req, res) => {
         if(err){
             res.status(400).json(err);
         }
-        user.idea.find((idea) => {
-            if(idea.id == req.params.ideaId){
-                idea = req.body;
+        let idea = user.idea.find((posIdea, i) => {
+            console.log(posIdea);
+            console.log(posIdea._id);
+            console.log(req.params.ideaId);
+            if(posIdea._id == req.params.ideaId){
+                user.idea[i] = req.body;b
+                console.log(user.idea[i]);
+                return user.idea[i];
             }
+            
         });
-        user.save((err)=>{});
+        user.save();
+        console.log(user);
+        res.redirect(`/user/${user._id}/idea/${idea._id}`);
+        // res.render("showIdea.ejs", {idea: idea, user: user});
     })
-    res.redirect("/req.params.ideaId");
 }
 let destroy = (req, res) => {
     User.findById(req.params.id, (err, user) =>{
         if(err){
             res.status(400).json(err);
         }
-        user.idea.find((idea) => {
-            if(idea.id == req.params.ideaId){
-                delete idea;
+        user.idea.find((posIdea, i) => {
+            console.log("hit" + i);
+            if(posIdea._id == req.params.ideaId){
+                console.log("it's true");
+                user.idea.splice(i,1);
             }
         });
+        user.save((err)=>{});
+        res.redirect(`/user/${user._id}/idea/`);
     })
-    User.save((err)=>{});
-    res.redirect("/");
 }
 
 module.exports = {

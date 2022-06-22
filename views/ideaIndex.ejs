@@ -8,10 +8,13 @@
     <title>ideas</title>
 </head>
 <body>
-    <header class="top-bar"><h1>Date Night Organizer</h1></header>
+    <%-include("./partials/navBar.ejs")%>
     <nav class="side filters"></nav>
-<ul>
-
+    
+<ul class="ideaList">
+    <% user.idea.forEach((idea)=>{ %>
+    <li><a href=<%=`/user/${user._id}/idea/${idea._id}`%> ><%=idea.title%></a></li>
+    <% }) %> 
 <li><a href=<%= `/user/${user._id}/idea/new` %> >create new idea</a></li>
 
 </ul>

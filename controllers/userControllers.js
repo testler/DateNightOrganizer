@@ -4,32 +4,40 @@ let landingPage = (req, res) => {
     res.render("landingPage.ejs");
 }
 let checkLogin = (req, res) => {
-    let loginInfo = req.body;
-    let userInfo;
-    User.findOne(({username: loginInfo.username}), (err, user)=>{
+    let posUser = req.body;
+    console.log(posUser);
+    posUser.username = posUser.username.toLowerCase();
+    User.findOne({username: posUser.username}, (err, user)=>{
         if(err){
             res.status(400).json(err);
         }
-        userInfo = user;
-        if(userInfo == undefined){
-        res.render("login.ejs", {problem: 1})
-        }else if(userInfo.password !== loginInfo.password){
-        res.render("login.ejs", {problem: 2})
+        console.log(user);
+        if(user){ 
+            if(user.password == posUser.password){
+                res.redirect(`/user/${user._id}/idea`)
+            }else{
+                console.log("password incorrect");
+                res.render("login.ejs", {problem: "password incorrect"});
+            }
         }else{
-        res.redirect(`/user/${userInfo._id}`)
-    }
+            console.log("hit");
+            console.log("user not found");
+            res.render("login.ejs", {problem: "user not found"});
+        }
     })
+    
 }
 let loginPage = (req, res) => {
-    res.render("login.ejs", {problem: 0})
+    res.render("login.ejs", {problem: ""})
     //res.redirect("/user/:id");
 }
 let newUser = (req, res) => {
     res.render("newUser.ejs");
 }
 let create = (req, res) => {
-    console.log(req.body);
-    User.create((req.body), (err, user) =>{
+    let posNewUser = req.body;
+    posNewUser.username = posNewUser.username.toLowerCase();
+    User.create((posNewUser), (err, user) =>{
         if(err){
             res.status(400).json(err);
         }
@@ -39,34 +47,26 @@ let create = (req, res) => {
     
      
 }
-let showDashboard = (req, res) => {
-    User.findById((req.params.id), (err, user) =>{
-        if(err){
-            res.status(400).json(err);
-        }
-    res.render("UserDashboard.ejs", {user: user});
-    })
-}
+
 let edit = (req, res) => {
     User.findById((req.params.id), (err, user) =>{
         if(err){
             res.status(400).json(err);
         } 
-        console.log(user);
         res.render("editUser.ejs", {user: user});   
     })
     
 }
 let update = (req, res) => {
-    User.findByIdAndUpdate((req.params.id), (err, user) =>{
+    User.findByIdAndUpdate(req.params.id, {password: req.body.password}, (err, user) =>{
         if(err){
             res.status(400).json(err);
         } 
-        res.redirect(`/user/${user._id}/edit`);   
+        res.redirect(`/user/${user._id}`);   
     })
 }
 let destroy = (req, res) => {
-    User.findByIdAndDelete((req.params.id), (err, user) =>{
+    User.findByIdAndDelete(req.params.id, (err, user) =>{
         if(err){
             res.status(400).json(err);
         } 

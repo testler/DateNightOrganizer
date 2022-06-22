@@ -1,6 +1,7 @@
 *{
     text-align: center;
     top: 150px;
+    text-decoration: none;
 }
 .top-bar{
     box-sizing: border-box;
@@ -29,10 +30,15 @@
     left: 150px;
 }
 .box2{
-    position: relative;
-    right: 150px;
 }
 .button{
     background-color:blue;
     border-radius: 10px;
+}
+.ideaList{
+    display: grid;
+
+}
+.problem{
+    color: red;
 }

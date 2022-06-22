@@ -11,11 +11,13 @@
 <body>
     <header class="top-bar"><h1>Date Night Organizer</h1></header>
     <h1>Login</h1>
-    <form action="/user/checkLogin" method="get">
+    <h3 class="problem"><%=problem%></h3>
+    <form action="/user/checkLogin" method="post">
         <label for="username">username</label>
-        <input type="text" name="username" id="">
+        <input type="text" name="username" id="username">
         <label for="password">password</label>
-        <input type="password" name="password" id="">
+        <br>
+        <input type="password" name="password" id="password">
         <input type="submit" value="login">
     </form>
 </body>

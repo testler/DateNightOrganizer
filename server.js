@@ -16,7 +16,7 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use("/user/:id/idea", iRoutes);
+app.use("/", iRoutes);
 app.use("/", uRoutes);
 
 app.listen((process.env.PORT || PORT), ()=>{

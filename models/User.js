@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
         username: String,
         password: String,
         profilePhoto: String,
-        idea: [ideaSchema]
+        idea: [ideaSchema],
     }
 )
 

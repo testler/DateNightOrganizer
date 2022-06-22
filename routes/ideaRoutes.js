@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const iControl = require("../controllers/ideaControllers.js");
 
-router.get("/", iControl.index);
-router.get("/new", iControl.newIdea);
-router.post("/", iControl.create);
-router.get("/:ideaId", iControl.show);
-router.get("/Random", iControl.random);
-router.get("/findRandomIdea", iControl.findRandom)
-router.get("/:ideaId/edit", iControl.edit);
-router.patch("/:ideaId", iControl.update);
-router.delete("/:ideaId", iControl.destroy);
+router.get("/user/:id/idea/", iControl.index);
+router.get("/user/:id/idea/new", iControl.newIdea);
+router.post("/user/:id/idea/", iControl.create);
+router.get("/user/:id/idea/:ideaId", iControl.show);
+router.get("/user/:id/idea/Random", iControl.random);
+router.get("/user/:id/idea/findRandomIdea", iControl.findRandom);
+router.get("/user/:id/idea/:ideaId/edit", iControl.edit);
+router.patch("/user/:id/idea/:ideaId", iControl.update);
+router.delete("/user/:id/idea/:ideaId", iControl.destroy);
 
 module.exports = router;

@@ -1,21 +1,29 @@
 const User = require("../models/User.js");
 
 let index = (req, res) => {
-    User.findById(req.params.id, (err, user) =>{
+    console.log(req.params.id);
+    User.findById((req.params.id), (err, user) =>{
         if(err){
             res.status(400).json(err);
         }
+        console.log(user);
         let ideasArr;
-        if(user.idea !== null || user.idea !== undefined){
+        if(user.idea.length != undefined){
             ideaArr = user.idea;
-            res.render("ideaIndex.ejs", {ideasArr: ideasArr});
+            res.render("ideaIndex.ejs", {ideasArr: ideasArr, user:user});
         }else{
             res.render("ideaIndex.ejs");
         }
     })
 }
 let newIdea = (req, res) => {
-    res.render("../views/newIdea.ejs");
+    User.findById(req.params.id, (err, user) =>{
+        if(err){
+            res.status(400).json(err);
+        }
+        res.render("../views/newIdea.ejs", {user:user});
+        })
+    
 }
 let create = (req, res) => {
     User.findById(req.params.id, (err, user) =>{
@@ -24,7 +32,7 @@ let create = (req, res) => {
         }
         user.idea.push(req.body);
         user.save((err)=>{
-                res.redirect("/ideaIndex");
+                res.redirect(`/user/${user._id}/idea/`);
             })
         })
 }

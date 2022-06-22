@@ -32,9 +32,8 @@ let create = (req, res) => {
     User.create((req.body), (err, user) =>{
         if(err){
             res.status(400).json(err);
-        } 
-        console.log(user);
-        console.log(err);
+        }
+        
         res.redirect(`/user/${user._id}`);  
     })
     

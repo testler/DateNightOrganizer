@@ -50,6 +50,7 @@ let random = (req, res) => {
         if(err){
             res.status(400).json(err);
         }
+        console.log(user);
         res.render("randomIdea.ejs", {user: user});
         })
 }
@@ -63,10 +64,10 @@ let findRandom = (req, res) => {
         idea = idea.filter((idea)=>{idea.budget <= filter.budget});
         idea = idea.filter((idea)=>{idea.mood == filter.mood});
         idea = idea[Math.floor(Math.random() * idea.length)];
-        if(idea == undefined){
+        if(!idea){
             res.send("could not find idea");
         }else{
-            res.render("showIdea.ejs", {idea: idea});    
+            res.render("showIdea.ejs", {idea, user});    
         }
         
         })

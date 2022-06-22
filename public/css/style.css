@@ -3,6 +3,12 @@
     top: 150px;
     text-decoration: none;
 }
+ul{
+    display: grid;
+}
+li{
+    display: grid;
+}
 .top-bar{
     box-sizing: border-box;
     height: 100px;

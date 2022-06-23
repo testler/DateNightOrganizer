@@ -9,7 +9,7 @@
 </head>
 <body>
     <%-include("./partials/navBar.ejs")%>
-    <h1>Settings</h1>
+    <h2>Settings</h2>
     <form action="/user/<%=user._id%>?_method=PATCH" method="post">
     <label for="password">password</label>
     <input type="password" name="password">

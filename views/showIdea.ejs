@@ -9,7 +9,7 @@
 </head>
 <body>
     <%-include("./partials/navBar.ejs")%>
-        <h1><%=idea.title%></h1> 
+        <h2><%=idea.title%></h2> 
         <h3>This idea needs to be done before <%=idea.time%> </h3>
         <h3>The budget for this idea is $<%=idea.budget%> </h3>
         <% if(idea.mood == "in"){ %> 

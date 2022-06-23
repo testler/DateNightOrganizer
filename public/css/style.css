@@ -3,11 +3,32 @@
     top: 150px;
     text-decoration: none;
 }
+button{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5vw;
+    border-radius: 20%;
+}
 ul{
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(10, 100%); 
+    gap: 50% 3%;
+    justify-content: space-evenly;
+    justify-items: center;
+
+}
+h1{
+    font-family: 'Beau Rivage', cursive;
+    font-size: 5vw;
 }
 li{
     display: grid;
+    place-self: stretch;
+    align-content: center;
+    background-color: grey;
+    border-radius: 15%;
+    font-size: 3.9vw;
+    font-family: 'Beau Rivage', cursive;
 }
 .top-bar{
     box-sizing: border-box;

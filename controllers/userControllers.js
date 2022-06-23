@@ -42,7 +42,7 @@ let create = (req, res) => {
             res.status(400).json(err);
         }
         
-        res.redirect(`/user/${user._id}`);  
+        res.redirect(`/user/${user._id}/idea`);  
     })
     
      
@@ -62,7 +62,7 @@ let update = (req, res) => {
         if(err){
             res.status(400).json(err);
         } 
-        res.redirect(`/user/${user._id}`);   
+        res.redirect(`/user/${user._id}/idea`);   
     })
 }
 let destroy = (req, res) => {

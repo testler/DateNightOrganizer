@@ -1,36 +1,28 @@
 const User = require("../models/User");
 
-let landingPage = (req, res) => {
-    res.render("landingPage.ejs");
+let homePage = (req, res) => {
+    res.render("homePage.ejs", {problem: ""})
 }
 let checkLogin = (req, res) => {
     let posUser = req.body;
-    console.log(posUser);
     posUser.username = posUser.username.toLowerCase();
     User.findOne({username: posUser.username}, (err, user)=>{
         if(err){
             res.status(400).json(err);
         }
-        console.log(user);
         if(user){ 
             if(user.password == posUser.password){
                 res.redirect(`/user/${user._id}/idea`)
             }else{
-                console.log("password incorrect");
-                res.render("login.ejs", {problem: "password incorrect"});
+                res.render("homePage.ejs", {problem: "Password Incorrect, please try again"});
             }
         }else{
-            console.log("hit");
-            console.log("user not found");
-            res.render("login.ejs", {problem: "user not found"});
+            res.render("homePage.ejs", {problem: "No Users with that username"});
         }
     })
     
 }
-let loginPage = (req, res) => {
-    res.render("login.ejs", {problem: ""})
-    //res.redirect("/user/:id");
-}
+
 let newUser = (req, res) => {
     res.render("newUser.ejs");
 }
@@ -75,9 +67,8 @@ let destroy = (req, res) => {
 }
 
 module.exports = {
-landingPage,
+homePage,
 checkLogin,
-loginPage,
 newUser,
 create,
 edit,

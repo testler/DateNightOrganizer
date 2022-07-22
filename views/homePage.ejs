@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>homepage</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Date Night<br> Organizer</h1>
+        <form action="/user/checkLogin" method="post">
+            <h2>Sign In</h2>
+            <h2 class="problem"><%=problem%></h2>
+            <label for="username"></label>
+            <input type="text" placeholder="username" id="username" name="username">
+            <br>
+            <label for="password"></label>
+            <input type="password" placeholder="password" id="password" name="password">
+            <br>
+            <input class="SignInButton" type="submit" value="Sign In">
+            <br>
+            <a class="link">Forgot your password?</a>
+        </form>
+        <br>
+        <br>
+        <a class="link">Don't have and account?</a>
+        <br>
+        <a class="SignUpButton" href="/user/new">Create an account</a>
+    </div>
+</body>
+</html>

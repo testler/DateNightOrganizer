@@ -9,23 +9,28 @@
 </head>
 <body>
     <%-include("./partials/navBar.ejs")%>
-    <form action=<%=`/user/${user._id}/idea/`%>  method="post">
-        <label for="title">Title</label>
-        <input type="text" name="title" placeholder="best title ever">
+    <form class="newIdeaForm" action=<%=`/user/${user._id}/idea/`%>  method="post">
+        <label for="title">
+            <input type="text" name="title" placeholder="Date night idea Title" autofocus>
+        </label>
         <br>
-        <label for="time">latest you can do this?</label>
-        <input type="time" name="time">
+        <label for="time">
+            <input type="time" name="time" placeholder="latest you can do this?">
+        </label>
         <br>
-        <label for="budget">max you expect to spend?(in dollar, don't use a $)</label>
-        <input type="string" name="budget" placeholder="30">
+        <label for="budget">
+            <input type="number" name="budget" placeholder="max you expect to spend in USD($)?" min="0">
+        </label>
         <br>
-        <label for="mood">in or out?</label>
-        <input type="text" name="mood" placeholder="in or out?">
+        <label for="mood">
+            <input type="text" name="mood" placeholder="stay in or go out?">
+        </label>
         <br>
-        <label for="description">Description</label>
-        <input type="text" name="description" placeholder="what you will be doing, how when...">
+        <label for="description">
+            <textarea name="description" id="ideaDescription" placeholder="what you will be doing, how when..." cols="30" rows="10"></textarea>
+        </label>
         <br>
-        <input type="submit" value="create new date night!">
+        <input type="submit" value="Create new date night!">
         </form>
 </body>
 </html>

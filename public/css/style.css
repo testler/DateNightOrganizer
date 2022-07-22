@@ -1,34 +1,90 @@
 *{
     text-align: center;
-    top: 150px;
     text-decoration: none;
+    padding: 0;
+}
+HTML{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("./images/background.gif");
+    height: 100vh;
+    animation: normal;
+    overflow: auto;
+}
+.container{
+    color: lightslategray;
+    margin: auto;
+    padding: 5%;
+    width:fit-content;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(145deg,#1d1d1d, #242424, #000000);
+    border-radius: 10px;
+    opacity: 75%;
+}
+.SignInButton, .SignUpButton, #username, #password{
+    border-radius: 10px;
+    width: 100%;
+    margin: 1%;
+    font-size: 2vh;
+    height: 4vh;
+    background-color: inherit;
+    border: 0;
+    color: white;
+    opacity: 100%;
+}
+.SignInButton{
+    background-color: #9d34bac0;
+}
+
+.SignUpButton{
+    height: 4vh;
+    line-height: 4vh;
+    display: block;
+    margin: auto;
+    background-color: #20B0BA;
 }
 button{
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5vw;
-    border-radius: 20%;
+    border-radius: 10px;
+    border: 0px;
+    padding: .5%;
+    background-color: #FFE500;
+    opacity: 40%;
 }
 ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(10, 100%); 
-    gap: 50% 3%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(30, 65%); 
     justify-content: space-evenly;
     justify-items: center;
-
 }
 h1{
-    font-family: 'Beau Rivage', cursive;
+    margin: 0;
     font-size: 5vw;
 }
-li{
-    display: grid;
+.ideaDisplayBox, .newIdeaDisplayBox{
     place-self: stretch;
     align-content: center;
-    background-color: grey;
-    border-radius: 15%;
-    font-size: 3.9vw;
+    border-radius: 5%;
     font-family: 'Beau Rivage', cursive;
+    height: 25vw;
+    width: 25vw;
+}
+.ideaDisplayBox{
+    background-color: #8119FF;
+    opacity: 50%;
+    font-size: 250%;
+}
+.newIdeaDisplayBox{
+    background-color: #19A7FF;
+    opacity: 50%;
+    font-size: 200%;
+}
+li{
+    list-style: none;
 }
 .top-bar{
     box-sizing: border-box;
@@ -46,18 +102,6 @@ li{
     display: flexbox;
     top: 0;
 }
-.box{
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    background-color: gray;
-}
-.box1{
-    position: relative;
-    left: 150px;
-}
-.box2{
-}
 .button{
     background-color:blue;
     border-radius: 10px;
@@ -68,4 +112,52 @@ li{
 }
 .problem{
     color: red;
+}
+a{
+     font-size: 25px !important;
+}
+.navBarHeader{
+    margin: 0;
+    font-family: 'Beau Rivage', cursive;
+    font-size: 5vh;
+    color: #d79f25;
+    opacity: 75%;
+}
+.plus{
+    font-size: 300%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 70%;
+}
+.newIdeaForm{
+    margin-top: 5%;
+}
+ .newIdeaForm > label >input{
+    margin: auto;
+    display: block;
+    width: 40%;
+    height: 20%;
+    border: 0;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: larger;
+}
+.newIdeaForm > input{
+    margin: auto;
+    display: block;
+    width: 40%;
+    height: 20%;
+    border: 0;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: larger;
+    background-color: #8419ffc6;
+}
+#ideaDescription{
+    margin: auto;
+    display: block;
+    width: 40%;
+    height: 20%;
+    border: 0;
+    padding: 1%;
+    border-radius: 10px;
 }

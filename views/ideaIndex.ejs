@@ -9,15 +9,12 @@
 </head>
 <body>
     <%-include("./partials/navBar.ejs")%>
-    <nav class="side filters"></nav>
-    
 <ul class="ideaList">
     <% user.idea.forEach((idea)=>{ %>
-    <li><a href=<%=`/user/${user._id}/idea/${idea._id}`%> ><%=idea.title%></a></li>
+    <li><a href=<%=`/user/${user._id}/idea/${idea._id}`%> ><button class="ideaDisplayBox"><%=idea.title%></button></a></li>
     <% }) %> 
-<li><a href=<%= `/user/${user._id}/idea/new` %> >create new idea</a></li>
+<li><a href=<%=`/user/${user._id}/idea/new`%>><button class="newIdeaDisplayBox">Create new Idea<br><span class="plus">+</span></button></a></li>
 
 </ul>
-<a href=""></a>
 </body>
 </html>

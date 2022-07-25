@@ -131,7 +131,7 @@ a{
 .newIdeaForm{
     margin-top: 5%;
 }
- .newIdeaForm > label >input{
+ .newIdeaForm > label >input, #mood{
     margin: auto;
     display: block;
     width: 40%;
@@ -149,7 +149,7 @@ a{
     border: 0;
     padding: 1%;
     border-radius: 10px;
-    font-size: larger;
+    font-size: 3vw;
     background-color: #8419ffc6;
 }
 #ideaDescription{

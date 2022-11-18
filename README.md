@@ -13,6 +13,9 @@ You will be greeted with the collections menu, where you can create and store al
 Express.js, Node.js, EJS, mongoose, and MongoDB
 The entire application is server-side rendered
 
+## Preview
+![Date night organizer](https://user-images.githubusercontent.com/7112451/202808182-bf770b0e-5bed-46ee-a011-224af94c4619.png)
+
 ## Contributing
 Pull requests are welcome.  Please open an issue to discuss what you want to change or improve.
 
@@ -20,3 +23,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+

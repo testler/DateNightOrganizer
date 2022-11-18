@@ -10,8 +10,8 @@ Create an account if it is your first time, or log in if it is not
 
 You will be greeted with the collections menu, where you can create and store all your ideas.
 ## Technologies used
-	Express.js, Node.js, EJS, mongoose, and MongoDB
-	The entire application is server-side rendered
+Express.js, Node.js, EJS, mongoose, and MongoDB
+The entire application is server-side rendered
 
 ## Contributing
 Pull requests are welcome.  Please open an issue to discuss what you want to change or improve.
